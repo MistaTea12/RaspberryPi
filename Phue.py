@@ -1,3 +1,6 @@
+#Phillips Hue Home automation project
+#Allows control of Phillips Hue Bulbs
+
 from tkinter import *
 from tkinter import ttk
 import time
@@ -5,7 +8,7 @@ import urllib.request
 import phue
 from phue import Bridge
 
-b = Bridge('192.168.1.26')
+b = Bridge('192.168.1.26') #Replace with your Phllips Hue Hub Address
 
 try:
     b.connect()
