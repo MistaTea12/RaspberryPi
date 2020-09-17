@@ -8,7 +8,7 @@ import urllib.request
 import phue
 from phue import Bridge
 
-b = Bridge('192.168.1.26') #Replace with your Phllips Hue Hub Address
+b = Bridge('192.168.1.151') #Replace with your Phllips Hue Hub Address
 
 try:
     b.connect()
@@ -25,7 +25,6 @@ for lightBulb in lights:
 root = Tk()
 root.style = ttk.Style() 
 root.style.theme_use('clam')
-root.attributes("-fullscreen", True)
 #root.configure(background='black')
 
 frame = Frame(root)
@@ -52,30 +51,23 @@ def turn_off():
 def quit():
     root.destroy()
 
-def quit_popUp():
+""" def quit_popUp():
 
     def quit2():
-        top.destroy()
-        
-    top = Toplevel()
-    top.style = ttk.Style()
-    top.style.theme_use('clam')
+        popup.destroy
+        popup.destroy()
+ 
+    popup = Tk()
+    popup.wm_title("!")
+    popup.title("Quit")
+    msg = Message(popup, text= "Are you sure you want to quit?").grid(row=0)
+    button_yes = ttk.Button(popup, text = "Yes",width = 10, command = quit).grid(row=1)
+    button_no = ttk.Button(popup, text = "No",width = 10, command = quit2).grid(row=2)
+    popup.mainloop() """
 
-    top.attributes("-fullscreen", True)
-    top.title("Quit")
-
-    msg = Message(top, text= "Are you sure you want to quit?").grid(row=0)
-    
-
-    button_yes = ttk.Button(top, text = "Yes",width = 10, command = quit).grid(row=1)
-
-
-    button_no = ttk.Button(top, text = "No",width = 10, command = quit2).grid(row=2)
-
-
-img = PhotoImage(file ="/home/pi/Desktop/Python Images/OnButton.png")
+""" img = PhotoImage(file ="/home/pi/Desktop/Python Images/OnButton.png")
 img2 = PhotoImage(file ="/home/pi/Desktop/Python Images/OffButton.png")
-img3 = PhotoImage(file ="/home/pi/Desktop/Python Images/QuitButton.png")
+img3 = PhotoImage(file ="/home/pi/Desktop/Python Images/QuitButton.png") """
 
 lights = b.get_light_objects('id')
 
@@ -100,8 +92,5 @@ for light_id in lights:
     label.grid(row = rowNum, column = 1)
     rowNum = rowNum + 1
 
-quit_button = ttk.Button(frame, text= "QUIT", width = 10, command = quit_popUp()).grid(row = rowNum, column=0)
-
 
 root.mainloop()
-
